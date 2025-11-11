@@ -12,8 +12,8 @@
 
 Summary: Qt6 - Charts component
 Name:    qt6-%{qt_module}
-Version: 6.8.1
-Release: 2%{?dist}
+Version: 6.9.1
+Release: 3%{?dist}
 
 License: GPL-3.0-only WITH Qt-GPL-exception-1.0
 Url:     http://www.qt.io
@@ -103,11 +103,15 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 %{_qt6_libdir}/libQt6ChartsQml.so
 %{_qt6_libdir}/libQt6ChartsQml.prl
 %dir %{_qt6_libdir}/cmake/Qt6Charts/
-%{_qt6_libdir}/cmake/Qt6Charts/
+%{_qt6_libdir}/cmake/Qt6Charts/*.cmake
+%dir %{_qt6_libdir}/cmake/Qt6ChartsPrivate/
+%{_qt6_libdir}/cmake/Qt6ChartsPrivate/*.cmake
 %{_qt6_libdir}/cmake/Qt6BuildInternals/StandaloneTests/QtChartsTestsConfig.cmake
 %{_qt6_libdir}/cmake/Qt6Qml/QmlPlugins/Qt6qtchartsqml2*.cmake
 %dir %{_qt6_libdir}/cmake/Qt6ChartsQml/
-%{_qt6_libdir}/cmake/Qt6ChartsQml/
+%{_qt6_libdir}/cmake/Qt6ChartsQml/*.cmake
+%dir %{_qt6_libdir}/cmake/Qt6ChartsQmlPrivate/
+%{_qt6_libdir}/cmake/Qt6ChartsQmlPrivate/*.cmake
 %{_qt6_archdatadir}/mkspecs/modules/*
 %{_qt6_libdir}/qt6/metatypes/qt6*_metatypes.json
 %{_qt6_libdir}/qt6/modules/*.json
@@ -124,6 +128,18 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 %endif
 
 %changelog
+* Mon Jun 09 2025 Jan Grulich <jgrulich@redhat.com> - 6.9.1-3
+- Re-enable tests
+  Resolves: RHEL-78532
+
+* Fri Jun 06 2025 Jan Grulich <jgrulich@redhat.com> - 6.9.1-2
+- Rebuild (broken buildroot)
+  Resolves: RHEL-78532
+
+* Wed May 14 2025 Jan Grulich <jgrulich@redhat.com> - 6.9.1-1
+- 6.9.1
+  Resolves: RHEL-78532
+
 * Mon Dec 09 2024 Jan Grulich <jgrulich@redhat.com> - 6.8.1-2
 - Re-enable tests
   Resolves: RHEL-53982
