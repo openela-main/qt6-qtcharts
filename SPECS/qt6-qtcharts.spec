@@ -6,14 +6,13 @@
 %global prerelease rc2
 %endif
 
-%global examples 1
-# FIXME: needs bootstrap
 %global build_tests 1
+%global examples 1
 
 Summary: Qt6 - Charts component
 Name:    qt6-%{qt_module}
-Version: 6.9.1
-Release: 3%{?dist}
+Version: 6.10.1
+Release: 1%{?dist}
 
 License: GPL-3.0-only WITH Qt-GPL-exception-1.0
 Url:     http://www.qt.io
@@ -51,7 +50,6 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 %package examples
 Summary: Programming examples for %{name}
 Requires: %{name}%{?_isa} = %{version}-%{release}
-# BuildRequires: qt6-qtcharts-devel >= %{version}
 %description examples
 %{summary}.
 %endif
@@ -59,7 +57,6 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 %if 0%{?build_tests}
 %package tests
 Summary: Unit tests for %{name}
-BuildRequires: qt6-qtcharts-devel >= %{version}
 Requires: %{name}%{?_isa} = %{version}-%{release}
 %description tests
 %{summary}.
@@ -128,6 +125,10 @@ Requires: %{name}%{?_isa} = %{version}-%{release}
 %endif
 
 %changelog
+* Mon Nov 24 2025 Jan Grulich <jgrulich@redhat.com> - 6.10.1-1
+- 6.10.1
+  Resolves: RHEL-109197
+
 * Mon Jun 09 2025 Jan Grulich <jgrulich@redhat.com> - 6.9.1-3
 - Re-enable tests
   Resolves: RHEL-78532
